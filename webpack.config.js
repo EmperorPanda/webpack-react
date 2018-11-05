@@ -27,6 +27,9 @@ module.exports = {
                         loader: 'css-loader?modules'    // 放在后面的先被解析
                     }
                 ]
+            },{
+    　　　　　　  test: /\.(png|jpg)$/,
+    　　　　　　  loader: 'url-loader?limit=8192'
             }
             // {
             //     test:/\.css$/,   
