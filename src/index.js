@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import './assets/css/base.css'
 import styles from './assets/css/index.css'
 import images from './assets/images/001.jpg'
-console.log(styles);
+import {
+    DatePicker,
+    Button
+} from 'antd'
+// console.log(styles);
 class App extends React.Component {
     render () {
-    return (
-    <div className={styles.hello}>
-        你好中国年
-    
-    是不是对你陈诺了太多还是11ß
-        <img src={images}/>
-    </div>
-    )
+        return (
+            <div>
+                <DatePicker/>
+                <Button className={styles['hello']}>
+                    年后
+                </Button>
+                <img src={images}/>
+            </div>
+        )
     }
 }
 ReactDOM.render(

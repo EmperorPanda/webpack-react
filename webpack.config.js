@@ -2,32 +2,42 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
     module: {
         rules: [
-            {
-                test: /\.js$/,
+            {//ES6、JSX处理
+                test:/(\.jsx|\.js)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
+                loader:'babel-loader',
+                query:
+                    {
+                        presets:["react"],
+                        plugins: [
+                            [
+                                "import",
+                                {libraryName: "antd", style: 'css'}
+                            ] //antd按需加载
+                        ]
+                    },
+            },
+
+            {//CSS处理
+                test: /\.css$/,
+                loader: "style-loader!css-loader?modules",
+                exclude: /node_modules/,
+            },
+
+            {//antd样式处理
+              test:/\.css$/,
+              exclude:/src/,
+              use:[
+                    { loader: "style-loader"},
+                    {
+                        loader: "css-loader",
+                        options:{
+                            importLoaders:1
+                        }
+                    }
+              ]
             },
             {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: "html-loader",
-                        options: { minimize: true }
-                    }
-                ]
-            },{
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'  // 可以把css放在页面上
-                    },
-                    {
-                        loader: 'css-loader?modules'    // 放在后面的先被解析
-                    }
-                ]
-            },{
     　　　　　　  test: /\.(png|jpg)$/,
     　　　　　　  loader: 'url-loader?limit=8192'
             }
