@@ -1,10 +1,13 @@
 import dva from'dva';
-
+import initData from './initModel'
 // 1. 创建 dva 实例
 const app = dva();
 
+console.log(initData,888)
 // 3. 注册 Model
-app.model(require('./models/users/users').default);
+initData.forEach(v=>{
+    app.model(v);
+})
 
 // 4. 配置路由
 app.router(require('./router'));

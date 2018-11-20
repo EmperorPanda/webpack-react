@@ -5,7 +5,8 @@ import {
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 
-import App from './routes/users';
+// import App from './routes/users';
+import App from './layout';
 
 function RouterConfig({ history, app }) {
   return (

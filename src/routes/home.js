@@ -9,12 +9,8 @@ import {
     Select,
     DatePicker,
 } from 'antd';
-import styles from './../assets/css/index.css'
-const Option = Select.Option;
-const { RangePicker } = DatePicker;
-const dateFormat = 'YYYY/MM/DD';
 
-class users extends React.Component {
+class home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -58,37 +54,17 @@ class users extends React.Component {
                     
                 </div>
             </div>
-            <Modal
-                title='查看详情'
-                visible={this.state.visible}
-                onOk={this.handleCancel}
-                onCancel={this.handleCancel}
-            >
-                <Row style={{ marginBottom: '24px' }}>
-                    <Col span="8" className={styles['hello']}>
-                        部门：
-                    </Col>
-                    <Col span="8">
-                        物料名称：
-                    </Col>
-
-                    <Col span="8">
-                        时间：
-                    </Col>
-                </Row>
-                
-            </Modal>
         </div>
     }
 }
 
 function mapStateToProps(state) {
 
-    const {  } = state.users;
+    const {  } = state.home;
 
     return {
        
     }
 }
 
-export default connect(mapStateToProps)(Form.create({})(users));
+export default connect(mapStateToProps)(Form.create({})(home));
