@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
 module.exports = {
     module: {
         rules: [
@@ -50,10 +51,9 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: require('path').join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "dist"), //编译好的文件放在这里
         compress: true,
-        port: 8099,
-        host: "localhost",
+        port: 9000 //本地开发服务器端口
     },
     plugins: [
         new HtmlWebPackPlugin({
